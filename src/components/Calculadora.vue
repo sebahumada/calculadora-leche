@@ -15,7 +15,7 @@
                             <tr>
                             
                                 <th scope="col">Medida</th>
-                                <th scope="col">Medidas diarias</th>
+                                <th scope="col">Mamaderas diarias</th>
                                 <th scope="col">Total día</th>
                                 <th scope="col">Faltante</th>
 
