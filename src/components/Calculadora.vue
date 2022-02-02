@@ -15,7 +15,7 @@
                             <tr>
                             
                                 <th scope="col">Medida</th>
-                                <th scope="col">Mamaderas diarias</th>
+                                <th scope="col">N° Mamaderas</th>
                                 <th scope="col">Total día</th>
                                 <th scope="col">Faltante</th>
 
@@ -25,7 +25,7 @@
                     <tbody>
                         <tr v-for="med in medidas" :key="med.medida">
                             <td>{{med.medida}}</td>
-                            <td>{{med.cantidad}} medidas</td>
+                            <td>{{med.cantidad}}</td>
                             <td>{{med.total}} ml</td>
                             <td>{{med.faltante}} ml</td>
                         </tr>
