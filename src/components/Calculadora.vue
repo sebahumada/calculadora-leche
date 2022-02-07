@@ -2,7 +2,7 @@
   <div class="container mt-3">
         <h1>Calculadora Leche Bebé</h1>
         <div class="form-floating mb-3">
-                <input id="floatingInput"  @keyup.enter.="calcularLeche" class="form-control" placeholder="Ingresar" type="number" name="peso" v-model.number="peso" min="2000" max="15000">
+                <input id="floatingInput"  @keyup.enter="calcularLeche" class="form-control" placeholder="Ingresar" type="number" name="peso" v-model.number="peso" min="2500" max="10000">
                 
                 <label for="floatingInput">Ingrese el peso del bebé (gramos)</label>
 
@@ -39,19 +39,27 @@
 </template>
 
 <script>
+
+import Swal from 'sweetalert2'
+
 export default {
     name: 'Calculadora',
     data(){
         return{
-            peso: 3000,
+            peso: 2500,
             leche: 0,
             medidas:[]
         }
     },
     methods:{
         calcularLeche(){
-            if(this.peso<2000 || this.peso>15000){
+            if(this.peso<2500 || this.peso>10000){
                 this.leche = 0
+                 Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'El peso debe estar entre 2500 y 10000 gr'
+                    })
                 return
             }
             this.leche = Math.round(this.peso*74/450)
@@ -60,11 +68,15 @@ export default {
         calcularMedidas(){
 
             let salida=[]
-            for (let ml = 30; ml <= 120; ml = ml + 10) {
+
+            const medidas=[30,50,60,80,90,110,120,150,200,250,500]
+
+            medidas.forEach(ml => {
+                
+
                 const cantidad = Math.round(this.leche/ml)
 
-                if( cantidad<=12){
-
+                if(cantidad<=10 && cantidad>1){
                     salida.push({
                         medida:`${ml} ml`,
                         cantidad,
@@ -72,9 +84,7 @@ export default {
                         faltante: this.leche - ml*cantidad 
                     })
                 }
-
-            }  
-
+            });
             this.medidas = salida
         }
     }
