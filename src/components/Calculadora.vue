@@ -67,9 +67,9 @@ export default {
         },
         calcularMedidas(){
 
-            let salida=[]
+            let salida=[];
 
-            const medidas=[30,50,60,80,90,110,120,150,200,250,500]
+            const medidas=[30,50,60,80,90,110,120,150,180,200,250,500];
 
             medidas.forEach(ml => {
                 
