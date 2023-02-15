@@ -53,12 +53,12 @@ export default {
     },
     methods:{
         calcularLeche(){
-            if(this.peso<2500 || this.peso>10000){
+            if(this.peso<2500 || this.peso>20000){
                 this.leche = 0
                  Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: 'El peso debe estar entre 2500 y 10000 gr'
+                    text: 'El peso debe estar entre 2500 y 20000 gr'
                     })
                 return
             }
